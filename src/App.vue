@@ -1,16 +1,17 @@
 <template>
   <v-app>
     <div class="text-center">
-      <p class="display-4 font-weight-bold">YQYMONs</p>
-      <p class="display-1 font-weight-thin">KPL Legend Team</p>
+      <p class="display-4 font-weight-bold">{{ title }}</p>
+      <p class="display-1 font-weight-thin">{{ description }}</p>
       <v-btn-toggle>
         <v-btn :color="mode ? 'red' : 'green'" @click="mode = !mode" dark
           >Mode</v-btn
         >
         <v-btn @click="getRandomTeam" outlined color="success">更换阵容</v-btn>
+        <v-btn @click="seen = !seen">kanwo</v-btn>
       </v-btn-toggle>
     </div>
-    <TeamPreview />
+    <TeamPreview v-if="seen" />
     <TeamMetrics />
     <TeamTable />
   </v-app>
@@ -25,6 +26,9 @@ export default {
   name: "App",
   data: () => ({
     mode: true,
+    title: "YQYMONs",
+    seen: true,
+    description: "KPL Legend Team",
   }),
   components: {
     TeamPreview,
@@ -68,34 +72,7 @@ export default {
       let b = this.randomArrayUtil(this.heroes, this.heroes.length);
       console.log("b", b.slice(5));
       console.log(tempTeam);
-      // let choicePlayers = [];
-      // if (this.mode == true) {
-      //   choicePlayers = this.randomArrayUtil(this.players);
-      // } else {
-      //   choicePlayers = this.players;
-      // }
-      // let choiceHeros = this.randomArrayUtil(this.heroes);
-      // let tempTeam = [];
       let tempMetrics = [];
-      // for (let i = 0; i < 5; i++) {
-      //   let posDict = {
-      //     0: "TOP",
-      //     1: "JUG",
-      //     2: "MID",
-      //     3: "ADC",
-      //     4: "SUP",
-      //   };
-      //   let tempItem = {};
-      //   tempItem["position"] = posDict[i];
-      //   tempItem["hero"] = choiceHeros[i];
-      //   tempItem["name"] = choicePlayers[i];
-      //   tempItem["rank"] = Math.ceil(Math.random() * 5);
-      //   tempTeam.push(tempItem);
-      // }
-      // console.log(tempTeam);
-      // console.log("old", this.$store.state.team);
-      // let tempTeam = this.shuffle(this.$store.state.team);
-      // console.log("new", tempTeam);
       this.$store.commit("updateTeam", tempTeam);
 
       let c = ["推线", "输出", "坦度", "团战", "控制", "支援"];
