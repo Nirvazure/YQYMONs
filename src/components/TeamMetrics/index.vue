@@ -24,15 +24,11 @@
 </template>
 
 <script>
-//介绍Echart
-//filters
-//Vuetify Progress-Circular
 import RaddarChart from "./components/RaddarChart";
 export default {
   components: {
     RaddarChart,
   },
-  mounted() {},
   filters: {
     getColorByMetricName: (metricsName) => {
       switch (metricsName) {

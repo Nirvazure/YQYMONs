@@ -26,13 +26,7 @@
 </template>
 
 <script>
-//v-for
-//animate.css
-//flex布局
-//Vuetify Card/Avatar
-export default {
-  data: () => ({}),
-};
+export default {};
 </script>
 
 <style>
