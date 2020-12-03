@@ -1,16 +1,17 @@
 <template>
   <v-app>
     <div class="text-center">
-      <p class="display-4 font-weight-bold">YQYMONs</p>
-      <p class="display-1 font-weight-thin">KPL Legend Team</p>
+      <p class="display-4 font-weight-bold">{{ title }}</p>
+      <p class="display-1 font-weight-thin">{{ description }}</p>
       <v-btn-toggle>
         <v-btn :color="mode ? 'red' : 'green'" @click="mode = !mode" dark
           >Mode</v-btn
         >
         <v-btn @click="getRandomTeam" outlined color="success">更换阵容</v-btn>
+        <v-btn @click="seen = !seen">kanwo</v-btn>
       </v-btn-toggle>
     </div>
-    <TeamPreview />
+    <TeamPreview v-if="seen" />
     <TeamMetrics />
     <TeamTable />
   </v-app>
@@ -25,6 +26,9 @@ export default {
   name: "App",
   data: () => ({
     mode: true,
+    title: "YQYMONs",
+    seen: true,
+    description: "KPL Legend Team",
   }),
   components: {
     TeamPreview,
