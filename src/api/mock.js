@@ -2,6 +2,9 @@ const team = [{
     player: {
         name: 'SandM影',
         img: require('@/assets/1.jpg'),
+        summary: "YQYMONs上单",
+        heros: ["106", "107", "108", "109"],
+        tags: ["上单霸主", "单打之王"]
     },
     pos: 'TOP',
     hero: {
@@ -17,6 +20,9 @@ const team = [{
     player: {
         name: 'HyBarain',
         img: require('@/assets/2.jpg'),
+        summary: "YQYMONs打野",
+        heros: ["111", "107", "123", "176"],
+        tags: ["节奏大师", "野区主宰"]
     },
     pos: 'JUG',
     hero: {
@@ -32,6 +38,9 @@ const team = [{
     player: {
         name: 'Nirvazure',
         img: require('@/assets/3.jpg'),
+        summary: "YQYMONs中单",
+        heros: ["106", "107", "108", "109"],
+        tags: ["团队大脑", "AP法王"]
     },
     pos: 'MID',
     hero: {
@@ -47,6 +56,9 @@ const team = [{
     player: {
         name: 'TinyRed',
         img: require('@/assets/4.jpg'),
+        summary: "YQYMONsAD钙奶",
+        heros: ["106", "107", "108", "109"],
+        tags: ["输出稳健", "颜值担当"]
     },
     pos: 'ADC',
     hero: {
@@ -63,6 +75,9 @@ const team = [{
     player: {
         name: 'Uncle',
         img: require('@/assets/5.jpg'),
+        summary: "YQYMONs辅助",
+        heros: ["106", "107", "108", "109"],
+        tags: ["开团机器", "团队之盾"]
     },
     pos: 'SUP',
     hero: {
