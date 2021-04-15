@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <gallery
+      :images="$store.state.team.map((v) => v.player.img)"
+      :index="index"
+      @close="index = null"
+    ></gallery>
     <v-row justify="center">
       <v-col v-for="(v, i) in $store.state.team" :key="i" cols="12" md="2">
         <v-hover v-slot="{ hover }">
@@ -9,6 +14,7 @@
             :class="{ 'animate__animated animate__pulse': hover }"
             :img="v.player.img"
             height="500"
+            @click="index = i"
           >
             <v-card-title class="d-flex align-self-start">{{
               v.pos
@@ -26,7 +32,15 @@
 </template>
 
 <script>
-export default {};
+import VueGallery from "vue-gallery";
+export default {
+  components: {
+    gallery: VueGallery,
+  },
+  data: () => ({
+    index: null,
+  }),
+};
 </script>
 
 <style>
