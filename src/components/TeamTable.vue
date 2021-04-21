@@ -35,8 +35,6 @@
 </template>
 
 <script>
-//介绍一下slot
-//介绍一下VuetifyTable
 export default {
   data: () => ({
     headers: [

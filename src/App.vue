@@ -8,17 +8,20 @@
           >Mode</v-btn
         >
         <v-btn @click="getRandomTeam" outlined color="success">更换阵容</v-btn>
-        <v-btn @click="seen = !seen">kanwo</v-btn>
       </v-btn-toggle>
     </div>
+
+    <RelatedGraph class="my-4" />
+
     <TeamPreview v-if="seen" />
-    <TeamMetrics />
-    <TeamTable />
+    <TeamMetrics v-if="seen" />
+    <TeamTable v-if="seen" />
   </v-app>
 </template>
 
 <script>
 import axios from "axios";
+import RelatedGraph from "@/components/RelatedGraph";
 import TeamPreview from "@/components/TeamPreview";
 import TeamMetrics from "@/components/TeamMetrics";
 import TeamTable from "@/components/TeamTable";
@@ -27,13 +30,14 @@ export default {
   data: () => ({
     mode: true,
     title: "YQYMONs",
-    seen: true,
     description: "KPL Legend Team",
+    seen: true,
   }),
   components: {
     TeamPreview,
     TeamMetrics,
     TeamTable,
+    RelatedGraph,
   },
   mounted() {
     this.initial();
