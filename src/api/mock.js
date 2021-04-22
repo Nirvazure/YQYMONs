@@ -171,12 +171,12 @@ const relateGraphData = {
         },
         {
             "id": "0",
-            "name": "上官婉儿",
+            "name": "sgwe",
             "symbolSize": 20,
             "x": 10,
             "y": -4,
             "value": 4,
-            "category": 5
+            "category": 2
         },
         {
             "id": "1",
@@ -185,7 +185,7 @@ const relateGraphData = {
             "x": 9,
             "y": -5,
             "value": 4,
-            "category": 5
+            "category": 2
         },
         {
             "id": "2",
@@ -194,9 +194,26 @@ const relateGraphData = {
             "x": -2,
             "y": -10,
             "value": 4,
-            "category": 5
+            "category": 0
         },
-
+        {
+            "id": "3",
+            "name": "gsl",
+            "symbolSize": 20,
+            "x": -6,
+            "y": 6,
+            "value": 4,
+            "category": 3
+        },
+        {
+            "id": "4",
+            "name": "zy",
+            "symbolSize": 20,
+            "x": -10,
+            "y": -3,
+            "value": 4,
+            "category": 1
+        },
     ],
     "links": [{
             "source": "lfr",
@@ -239,6 +256,23 @@ const relateGraphData = {
             "source": "yf",
             "target": "2"
         },
+        {
+            "source": "ly",
+            "target": "3"
+        },
+        {
+            "source": "by",
+            "target": "4"
+        },
+        {
+            "source": "lfr",
+            "target": "4"
+        },
+        {
+            "source": "lcb",
+            "target": "4"
+        },
+
     ],
     "categories": [{
             "name": "TOP"
@@ -255,8 +289,6 @@ const relateGraphData = {
         {
             "name": "SUP"
         },
-        {
-            "name": "Mage"
-        },
+
     ]
 }

@@ -24,6 +24,11 @@
                 <v-img aspect-ratio="1" :src="v.hero.ename | toImgUrl"></v-img>
               </v-avatar>
             </v-row>
+            <v-fade-transition>
+              <v-overlay v-if="hover" absolute>
+                <h2>{{ v.player.tags[0] }}</h2>
+              </v-overlay>
+            </v-fade-transition>
           </v-card>
         </v-hover>
       </v-col>
