@@ -16,7 +16,10 @@
     </div>
     <TeamPreview v-if="seen" />
     <TeamMetrics v-if="seen" />
-    <TeamTable v-if="seen" />
+    <div class="text-center mt-10">
+      <p class="display-1 font-weight-thin">Team Table</p>
+    </div>
+    <TeamTable />
   </v-app>
 </template>
 
