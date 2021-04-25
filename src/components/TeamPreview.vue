@@ -13,15 +13,14 @@
         xl="2"
         lg="4"
         md="6"
-        sm="12"
       >
         <v-hover v-slot="{ hover }">
           <v-card
-            class="d-flex"
+            class="d-sm-none d-md-flex"
             :elevation="hover ? 24 : 6"
             :class="{ 'animate__animated animate__pulse': hover }"
             :img="v.player.img"
-            height="500"
+            min-height="500"
             @click="index = i"
           >
             <v-card-title class="d-flex align-self-start">{{
