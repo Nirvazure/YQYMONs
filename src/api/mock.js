@@ -171,7 +171,7 @@ const relateGraphData = {
         },
         {
             "id": "0",
-            "name": "sgwe",
+            "name": "上官婉儿",
             "symbolSize": 20,
             "x": 10,
             "y": -4,
@@ -180,7 +180,7 @@ const relateGraphData = {
         },
         {
             "id": "1",
-            "name": "gjmy",
+            "name": "干将莫邪",
             "symbolSize": 20,
             "x": 9,
             "y": -5,
@@ -189,7 +189,7 @@ const relateGraphData = {
         },
         {
             "id": "2",
-            "name": "lx",
+            "name": "李信",
             "symbolSize": 20,
             "x": -2,
             "y": -10,
@@ -198,7 +198,7 @@ const relateGraphData = {
         },
         {
             "id": "3",
-            "name": "gsl",
+            "name": "公孙离",
             "symbolSize": 20,
             "x": -6,
             "y": 6,
@@ -207,7 +207,7 @@ const relateGraphData = {
         },
         {
             "id": "4",
-            "name": "zy",
+            "name": "赵云",
             "symbolSize": 20,
             "x": -10,
             "y": -3,
