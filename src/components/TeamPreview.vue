@@ -6,7 +6,15 @@
       @close="index = null"
     ></gallery>
     <v-row justify="center">
-      <v-col v-for="(v, i) in $store.state.team" :key="i" cols="12" md="2">
+      <v-col
+        v-for="(v, i) in $store.state.team"
+        :key="i"
+        cols="12"
+        xl="2"
+        lg="4"
+        md="6"
+        sm="12"
+      >
         <v-hover v-slot="{ hover }">
           <v-card
             class="d-flex"

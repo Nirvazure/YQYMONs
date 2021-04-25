@@ -3,6 +3,10 @@
     <div class="text-center">
       <p class="display-4 font-weight-bold">{{ title }}</p>
       <p class="display-1 font-weight-thin">{{ description }}</p>
+    </div>
+
+    <RelatedGraph class="my-4" />
+    <div class="text-center">
       <v-btn-toggle>
         <v-btn :color="mode ? 'red' : 'green'" @click="mode = !mode" dark
           >Mode</v-btn
@@ -10,9 +14,6 @@
         <v-btn @click="getRandomTeam" outlined color="success">更换阵容</v-btn>
       </v-btn-toggle>
     </div>
-
-    <RelatedGraph class="my-4" />
-
     <TeamPreview v-if="seen" />
     <TeamMetrics v-if="seen" />
     <TeamTable v-if="seen" />

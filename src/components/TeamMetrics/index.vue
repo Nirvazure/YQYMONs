@@ -7,7 +7,9 @@
         v-for="(v, i) in $store.state.metrics"
         :key="i"
         cols="12"
-        md="1"
+        md="4"
+        sm="4"
+        xl="1"
       >
         <v-progress-circular
           rotate="360"
