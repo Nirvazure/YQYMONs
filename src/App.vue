@@ -16,6 +16,22 @@
     </div>
     <TeamPreview v-if="seen" />
     <TeamMetrics v-if="seen" />
+
+    <div class="text-center mt-10">
+      <p class="display-1 font-weight-thin">Team Show</p>
+      <v-row justify="center">
+        <v-sheet width="700" class="elevation-10">
+          <video
+            width="100%"
+            height="100%"
+            :src="video"
+            controls
+            autoplay
+          ></video>
+        </v-sheet>
+      </v-row>
+    </div>
+
     <div class="text-center mt-10">
       <p class="display-1 font-weight-thin">Team Table</p>
     </div>
@@ -36,6 +52,7 @@ export default {
     title: "YQYMONs",
     description: "KPL Legend Team",
     seen: true,
+    video: require("@/assets/1.mp4"),
   }),
   components: {
     TeamPreview,
