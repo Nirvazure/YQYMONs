@@ -1,25 +1,30 @@
 const team = [{
     player: {
-        name: 'SandM影',
-        img: require('@/assets/1.jpg'),
-        summary: "YQYMONs上单",
+        name: 'TinyRed',
+        img: require('@/assets/4.jpg'),
+        bgimg: require('@/assets/4.png'),
+        bgbimg: require('@/assets/4b.png'),
+        summary: "YQYMONsAD钙奶",
         heros: ["106", "107", "108", "109"],
-        tags: ["上单霸主", "单打之王"]
+        tags: ["输出稳健", "颜值担当"]
     },
-    pos: 'TOP',
+    pos: 'ADC',
     hero: {
-        cname: "鲁班七号",
-        ename: 112,
-        hero_type: 5,
+        cname: "阿古朵",
+        ename: 533,
+        hero_type: 3,
+        hero_type2: 6,
         new_type: 0,
-        skin_name: "机关造物|木偶奇遇记|福禄兄弟|电玩小子|星空梦想",
-        title: "机关造物",
+        skin_name: "山林之子",
+        title: "山林之子"
     },
-    rank: 2
+    rank: 5
 }, {
     player: {
         name: 'HyBarain',
         img: require('@/assets/2.jpg'),
+        bgimg: require('@/assets/2.png'),
+        bgbimg: require('@/assets/2b.png'),
         summary: "YQYMONs打野",
         heros: ["111", "107", "123", "176"],
         tags: ["节奏大师", "野区主宰"]
@@ -38,6 +43,8 @@ const team = [{
     player: {
         name: 'Nirvazure',
         img: require('@/assets/3.jpg'),
+        bgimg: require('@/assets/3.png'),
+        bgbimg: require('@/assets/3b.png'),
         summary: "YQYMONs中单",
         heros: ["106", "107", "108", "109"],
         tags: ["团队大脑", "AP法王"]
@@ -54,27 +61,30 @@ const team = [{
     rank: 4
 }, {
     player: {
-        name: 'TinyRed',
-        img: require('@/assets/4.jpg'),
-        summary: "YQYMONsAD钙奶",
+        name: 'SandM影',
+        img: require('@/assets/1.jpg'),
+        bgimg: require('@/assets/1.png'),
+        bgbimg: require('@/assets/1b.png'),
+        summary: "YQYMONs上单",
         heros: ["106", "107", "108", "109"],
-        tags: ["输出稳健", "颜值担当"]
+        tags: ["上单霸主", "单打之王"]
     },
-    pos: 'ADC',
+    pos: 'TOP',
     hero: {
-        cname: "阿古朵",
-        ename: 533,
-        hero_type: 3,
-        hero_type2: 6,
+        cname: "鲁班七号",
+        ename: 112,
+        hero_type: 5,
         new_type: 0,
-        skin_name: "山林之子",
-        title: "山林之子"
+        skin_name: "机关造物|木偶奇遇记|福禄兄弟|电玩小子|星空梦想",
+        title: "机关造物",
     },
-    rank: 5
+    rank: 2
 }, {
     player: {
         name: 'Uncle',
         img: require('@/assets/5.jpg'),
+        bgimg: require('@/assets/5.png'),
+        bgbimg: require('@/assets/5b.png'),
         summary: "YQYMONs辅助",
         heros: ["106", "107", "108", "109"],
         tags: ["开团机器", "团队之盾"]

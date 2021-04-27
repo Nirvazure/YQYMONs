@@ -3,7 +3,16 @@
     <div class="text-center">
       <p class="display-4 font-weight-bold">{{ title }}</p>
       <p class="display-1 font-weight-thin">{{ description }}</p>
-      <v-row justify="center">
+      <v-row justify="center" no-gutters>
+        <v-col v-for="(player, i) in team" :key="i">
+          <v-hover v-slot="{ hover }" open-delay="200">
+            <v-img
+              :class="{ 'animate__animated animate__pulse': hover }"
+              :src="hover ? player.player.bgimg : player.player.bgbimg"
+            ></v-img>
+          </v-hover>
+        </v-col>
+
         <v-sheet width="80%">
           <v-img :src="bg"></v-img>
         </v-sheet>
@@ -46,6 +55,7 @@
 
 <script>
 import axios from "axios";
+import { team } from "@/api/mock.js";
 import RelatedGraph from "@/components/RelatedGraph";
 import TeamPreview from "@/components/TeamPreview";
 import TeamMetrics from "@/components/TeamMetrics";
@@ -56,6 +66,7 @@ export default {
     mode: true,
     title: "YQYMONs",
     description: "KPL Legend Team",
+    team: team,
     seen: true,
     video: require("@/assets/1.mp4"),
     bg: require("@/assets/bg.png"),
