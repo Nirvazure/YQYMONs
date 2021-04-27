@@ -3,6 +3,11 @@
     <div class="text-center">
       <p class="display-4 font-weight-bold">{{ title }}</p>
       <p class="display-1 font-weight-thin">{{ description }}</p>
+      <v-row justify="center">
+        <v-sheet width="80%">
+          <v-img :src="bg"></v-img>
+        </v-sheet>
+      </v-row>
     </div>
 
     <RelatedGraph class="my-4" />
@@ -53,6 +58,7 @@ export default {
     description: "KPL Legend Team",
     seen: true,
     video: require("@/assets/1.mp4"),
+    bg: require("@/assets/bg.png"),
   }),
   components: {
     TeamPreview,
