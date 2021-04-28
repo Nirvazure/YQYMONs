@@ -5,17 +5,16 @@
       <p class="display-1 font-weight-thin">{{ description }}</p>
       <v-row justify="center" no-gutters>
         <v-col v-for="(player, i) in team" :key="i">
-          <v-hover v-slot="{ hover }" open-delay="200">
+          <v-hover v-slot="{ hover }" open-delay="100">
             <v-img
               :class="{ 'animate__animated animate__pulse': hover }"
               :src="hover ? player.player.bgimg : player.player.bgbimg"
             ></v-img>
           </v-hover>
         </v-col>
-
-        <v-sheet width="80%">
+        <!-- <v-sheet width="80%">
           <v-img :src="bg"></v-img>
-        </v-sheet>
+        </v-sheet> -->
       </v-row>
     </div>
 
@@ -87,7 +86,6 @@ export default {
       });
     },
     randomArrayUtil(arr, num) {
-      //传入要乱序的数组，和数组长度，用另一个数组接收
       const temp_array = [];
       for (let index in arr) {
         temp_array.push(arr[index]);
@@ -129,6 +127,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
