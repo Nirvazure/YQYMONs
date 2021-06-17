@@ -33,6 +33,7 @@ export default {
         {
           name: "Les Miserables",
           type: "graph",
+          layout: "circular",
           data: graph.nodes,
           links: graph.links,
           categories: graph.categories,

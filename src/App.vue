@@ -21,14 +21,14 @@
     <RelatedGraph class="my-4" />
     <div class="text-center">
       <v-btn-toggle>
-        <v-btn :color="mode ? 'red' : 'green'" @click="mode = !mode" dark
-          >Mode</v-btn
-        >
+        <v-btn :color="mode ? 'red' : 'green'" @click="mode = !mode" dark>
+          Mode
+        </v-btn>
         <v-btn @click="getRandomTeam" outlined color="success">更换阵容</v-btn>
       </v-btn-toggle>
     </div>
-    <TeamPreview v-if="seen" />
-    <TeamMetrics v-if="seen" />
+    <TeamPreview />
+    <TeamMetrics />
 
     <div class="text-center mt-10">
       <p class="display-1 font-weight-thin">Team Show</p>
@@ -45,9 +45,6 @@
       </v-row>
     </div>
 
-    <div class="text-center mt-10">
-      <p class="display-1 font-weight-thin">Team Table</p>
-    </div>
     <TeamTable />
   </v-app>
 </template>
@@ -66,7 +63,6 @@ export default {
     title: "YQYMONs",
     description: "KPL Legend Team",
     team: team,
-    seen: true,
     video: require("@/assets/1.mp4"),
     bg: require("@/assets/bg.png"),
   }),
