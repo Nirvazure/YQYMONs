@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getImage } from '../utils'
+import { getImage } from '@/utils/Index'
 
 interface MenuItem {
     text: string,
