@@ -21,10 +21,10 @@
               >{{ item.hero.hero_type | toHeroTypeName }}</v-chip
             >
           </template> -->
-    <template v-slot:[`item.rank`]="{ item }">
-      <!-- <v-rating :value="item.rank"></v-rating> -->
+    <!-- <template v-slot:[`item.rank`]="{ item }">
+      <v-rating :value="item.rank"></v-rating>
       <h2>222</h2>
-    </template>
+    </template> -->
   </v-data-table>
 </template>
 

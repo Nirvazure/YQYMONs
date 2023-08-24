@@ -1,5 +1,5 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -31,7 +31,7 @@ const routes = [
     name: "Shop",
     component: () => import("@/views/TeamShop.vue"),
   },
-]
+] as unknown as RouteRecordRaw[]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

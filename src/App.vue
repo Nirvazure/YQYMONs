@@ -11,24 +11,11 @@
         </p>
         <p class="text-h4 font-weight-thin my-5">KPL Legend Team</p>
 
-        <v-btn
-          variant="text"
-          :color="this.$router.currentRoute.path === '/squad' ? '#46b685' : undefined"
-          @click="$router.push(`/squad`)"
-          >Squad </v-btn
-        >|
-        <v-btn
-          variant="text"
-          :color="this.$router.currentRoute.path === '/show' ? '#46b685' : undefined"
-          class="mx-5 tabLink"
-          @click="$router.push(`/show`)"
+        <v-btn variant="text" @click="$router.push(`/squad`)">Squad </v-btn>|
+        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/show`)"
           >TeamShow </v-btn
         >|
-        <v-btn
-          variant="text"
-          :color="this.$router.currentRoute.path === '/shop' ? '#46b685' : undefined"
-          class="mx-5 tabLink"
-          @click="$router.push(`/shop`)"
+        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/shop`)"
           >Shop</v-btn
         >
       </div>
