@@ -15,6 +15,7 @@ import { createApp } from 'vue'
 // Plugins
 import { registerPlugins } from '@/plugins'
 // import animate from "animate.css";
+import './assets/main.css'
 
 
 const app = createApp(App)

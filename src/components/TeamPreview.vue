@@ -5,11 +5,11 @@
         <template v-slot:default="{ isHovering, props }">
           <v-card
             v-bind="props"
-            class="d-sm-none d-md-flex mx-5"
+            class="d-sm-none d-md-flex ma-2"
             :elevation="isHovering ? 24 : 6"
             :class="{ 'animate__animated animate__pulse': isHovering }"
-            min-height="500"
-            width="300"
+            height="360"
+            width="200"
             @click="$router.push({ name: 'Member', params: { name: v.name } })"
           >
             <v-img :src="v.player.img" cover>

@@ -15,9 +15,13 @@
         <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/show`)"
           >TeamShow </v-btn
         >|
-        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/shop`)"
-          >Shop</v-btn
-        >
+        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/shop`)">
+          Shop
+        </v-btn>
+        |
+        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/album`)">
+          Album
+        </v-btn>
       </div>
       <router-view></router-view>
       <v-footer>

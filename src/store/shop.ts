@@ -16,17 +16,17 @@ export const useShopStore = defineStore('shop', {
         shirts: [
             {
                 name: "干将莫邪",
-                img: getImage("../assets/ts1.jpg"),
+                img: getImage("../assets/images/ts1.jpg"),
                 color: "pink lighten-3",
             },
             {
                 name: "女娲",
-                img: getImage("../assets/ts2.jpg"),
+                img: getImage("../assets/images/ts2.jpg"),
                 color: "yellow lighten-3",
             },
             {
                 name: "墨子",
-                img: getImage("../assets/ts3.jpg"),
+                img: getImage("../assets/images/ts3.jpg"),
                 color: "#4db76c"
             },
         ],
