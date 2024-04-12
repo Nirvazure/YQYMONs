@@ -93,7 +93,7 @@ export default {
     console.log("4", this.$route, this.$router);
   },
   methods: {
-    btnChange(url: string, toggle) {
+    btnChange(url: string, toggle: any) {
       console.log("4", this.$route, this.$router);
       this.$router.push(url);
       toggle();
