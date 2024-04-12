@@ -16,6 +16,7 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 // import animate from "animate.css";
 import './assets/main.css'
+import router from './router'
 
 
 const app = createApp(App)
@@ -23,5 +24,6 @@ const app = createApp(App)
 registerPlugins(app)
 
 // app.use(animate)
+app.use(router)
 
 app.mount('#app')

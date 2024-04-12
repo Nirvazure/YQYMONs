@@ -11,6 +11,7 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 import { VDataTable } from 'vuetify/labs/VDataTable'
+import { md1, md2, md3 } from 'vuetify/blueprints'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -30,5 +31,6 @@ export default createVuetify({
   components: {
     VDataTable,
   },
+  blueprint: md3
 })
 

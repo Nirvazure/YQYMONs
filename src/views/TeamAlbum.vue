@@ -1,29 +1,26 @@
 <template>
-  <v-container>
+  <div class="show100">
     <v-row justify="center">
       <v-col md="2">
-        <div class="d-flex imgBox">
+        <div class="imgBox rotateAlbum">
           <v-img
+            class="border-xl rounded-circle"
             alt="Vue logo"
-            class="logo"
+            aspect-ratio="1"
             src="@/assets/images/album.jpg"
-            width="200"
-            height="200"
           />
         </div>
       </v-col>
-      <v-col md="6">
-        <SingleItem v-for="(single, index) in album" :key="single.id">
+      <v-col cols="5" offset="1">
+        <SingleItem v-for="single in album" :key="single.id">
           <template #icon> {{ single.id }} </template>
-          <template #heading>{{ index + single.style }}</template>
+          <template #heading>{{ single.style }}</template>
           <template #title>{{ single.name }}</template>
           As an independent project, Vue relies on community backing for its
-          sustainability. You can help us by
         </SingleItem>
       </v-col>
     </v-row>
-    <v-divider class="my-5" />
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -67,6 +64,19 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+}
+.rotateAlbum {
+  animation: rotate 5s infinite linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.show100 {
+  height: 100vh;
 }
 </style>

@@ -4,27 +4,35 @@
       <div class="text-center my-5">
         <p
           @click="$router.push(`/`)"
-          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte"
+          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2"
           id="h1"
         >
           <span class="title1 forte">YQY</span><span class="forte">MONs</span>
         </p>
-        <p class="text-h4 font-weight-thin my-5">KPL Legend Team</p>
+        <p class="text-h5 font-weight-thin mb-5">KPL Legend Team</p>
 
-        <v-btn variant="text" @click="$router.push(`/squad`)">Squad </v-btn>|
-        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/show`)"
-          >TeamShow </v-btn
-        >|
-        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/shop`)">
-          Shop
-        </v-btn>
-        |
-        <v-btn variant="text" class="mx-5 tabLink" @click="$router.push(`/album`)">
-          Album
-        </v-btn>
+        <v-item-group v-model="model" class="mb-8">
+          <v-item v-for="(v, i) in btns" :key="i">
+            <template v-slot:default="{ toggle }">
+              <v-btn
+                class="mx-3"
+                :active="model == i"
+                color="#46b685"
+                :class="{
+                  selectBtn: model == i,
+                  'text-white': model == i,
+                }"
+                variant="text"
+                @click="btnChange(v.text, toggle)"
+                >{{ v.text }}</v-btn
+              >
+              <span v-if="i < btns.length - 1"> |</span>
+            </template>
+          </v-item>
+        </v-item-group>
       </div>
       <router-view></router-view>
-      <v-footer>
+      <v-footer class=".d-sm-none .d-md-flex">
         <v-card flat tile width="100%" class="text-center ma-0">
           <v-card-text>
             <v-btn
@@ -72,7 +80,25 @@ export default {
         color: "green",
       },
     ],
+    btns: [
+      // { text: "INDEX", url: "" },
+      { text: "SQUAD" },
+      { text: "TEAMSHOW" },
+      { text: "SHOP" },
+      { text: "ALBUM" },
+    ],
+    model: null,
   }),
+  created() {
+    console.log("4", this.$route, this.$router);
+  },
+  methods: {
+    btnChange(url: string, toggle) {
+      console.log("4", this.$route, this.$router);
+      this.$router.push(url);
+      toggle();
+    },
+  },
 };
 </script>
 
@@ -101,5 +127,9 @@ export default {
   color: #46b685;
   margin-left: 5;
   margin-right: 5;
+}
+
+.selectBtn {
+  background-color: #46b685;
 }
 </style>

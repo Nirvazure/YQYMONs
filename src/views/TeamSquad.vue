@@ -1,9 +1,14 @@
 <template>
   <div>
-    <RelateChart />
-    <TeamPreview :team="teamStore.team" class="my-10" />
+    <TeamPreview :team="teamStore.team" class="my-5" />
     <div class="text-center">
-      <v-btn color="success" @click="teamStore.shuffler" width="400" size="large">
+      <v-btn
+        class="text-white"
+        color="#46b685"
+        @click="teamStore.shuffler"
+        width="400"
+        size="large"
+      >
         <span class="font-weight-black">更换阵容</span>
       </v-btn>
     </div>
@@ -22,8 +27,8 @@
         <h4 class="title font-weight-thin">{{ v.name }}</h4>
       </div>
     </v-row>
-    <v-divider class="my-5" />
-    <TeamTable :team="teamStore.team" />
+    <RelateChart class="my-6" />
+    <!-- <TeamTable :team="teamStore.team" /> -->
   </div>
 </template>
 
@@ -47,7 +52,7 @@ export default {
     RaddarChart,
     TeamPreview,
     RelateChart,
-    TeamTable,
+    // TeamTable,
   },
 };
 </script>

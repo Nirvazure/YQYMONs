@@ -1,9 +1,8 @@
 <template>
-  <v-container class="show">
+  <div class="show">
     <v-row justify="center">
-      <v-col cols="2">
-        <v-list>
-          <v-subheader>Category</v-subheader>
+      <v-col cols="2" class=".d-sm-none .d-md-flex">
+        <v-list class="rounded-lg mx-5">
           <v-list-item-group v-model="selectedItem" color="#46b685">
             <v-list-item v-for="(item, i) in shopStore.menuItems" :key="i">
               <template v-slot:prepend>
@@ -18,66 +17,57 @@
       </v-col>
       <v-col cols="8">
         <v-row justify="center">
-          <v-col cols="8">
-            <v-text-field label="Search" class="search" outlined> </v-text-field>
+          <v-col md="4" xs="12" v-for="(v, i) in shopStore.shirts" :key="i">
+            <div class="mx-1">
+              <v-hover v-slot:default="{ isHovering, props }">
+                <v-card
+                  class="rounded-xl"
+                  v-bind="props"
+                  :elevation="isHovering ? 12 : 2"
+                  :color="isHovering ? v.color : null"
+                >
+                  <v-img cover :src="v.img" aspect-ratio="01"></v-img>
+                  <v-card-title>YQYMONsT恤-{{ v.name }}</v-card-title>
+                  <v-card-text>
+                    <v-row align="center" class="mx-0">
+                      <v-rating
+                        :value="4.5"
+                        color="amber"
+                        dense
+                        half-increments
+                        readonly
+                        size="14"
+                      ></v-rating>
+
+                      <div class="grey--text ms-4">4.5 (413)</div>
+                    </v-row>
+                    <div class="my-4 text-subtitle-1">￥ 100.00</div>
+                  </v-card-text>
+                  <v-divider class="mx-4"></v-divider>
+                  <v-card-text>
+                    <v-chip-group
+                      v-model="selection"
+                      active-class="deep-purple accent-4 white--text"
+                      column
+                    >
+                      <v-chip>S</v-chip>
+                      <v-chip>M</v-chip>
+                      <v-chip>L</v-chip>
+                      <v-chip>XL</v-chip>
+                    </v-chip-group>
+                  </v-card-text>
+
+                  <!-- <v-card-actions>
+                    <v-btn variant="outlined" block> 立即购买 </v-btn>
+                  </v-card-actions> -->
+                </v-card>
+              </v-hover>
+            </div>
           </v-col>
-        </v-row>
-
-        <v-row justify="center">
-          <div class="mx-2" v-for="(v, i) in shopStore.shirts" :key="i">
-            <v-hover v-slot:default="{ isHovering, props }">
-              <v-card
-                width="400"
-                v-bind="props"
-                class="ma-12"
-                :elevation="isHovering ? 12 : 2"
-                :color="isHovering ? v.color : null"
-              >
-                <v-img cover :src="v.img" aspect-ratio="1.4"></v-img>
-                <v-card-title>YQYMONsT恤-{{ v.name }}</v-card-title>
-                <v-card-text>
-                  <v-row align="center" class="mx-0">
-                    <v-rating
-                      :value="4.5"
-                      color="amber"
-                      dense
-                      half-increments
-                      readonly
-                      size="14"
-                    ></v-rating>
-
-                    <div class="grey--text ms-4">4.5 (413)</div>
-                  </v-row>
-                  <div class="my-4 text-subtitle-1">￥ 100.00</div>
-                  <div>
-                    Small plates, salads & sandwiches - an intimate setting with 12 indoor
-                    seats plus patio seating.
-                  </div>
-                </v-card-text>
-                <v-divider class="mx-4"></v-divider>
-                <v-card-text>
-                  <v-chip-group
-                    v-model="selection"
-                    active-class="deep-purple accent-4 white--text"
-                    column
-                  >
-                    <v-chip>S</v-chip>
-                    <v-chip>M</v-chip>
-                    <v-chip>L</v-chip>
-                    <v-chip>XL</v-chip>
-                  </v-chip-group>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-btn variant="outlined"> 立即购买 </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-hover>
-          </div>
         </v-row>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -101,5 +91,6 @@ export default {
 }
 .show {
   height: 100vh;
+  margin: 50px;
 }
 </style>

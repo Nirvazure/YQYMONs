@@ -16,7 +16,7 @@
               <div class="d-felx"></div>
               <v-card-title class="d-flex align-self-start">{{ v.pos }}</v-card-title>
               <v-row class="d-flex align-self-end mb-4 mr-4" justify="end">
-                <v-avatar right size="100" class="d-flex justify-end">
+                <v-avatar right size="100" border="warning lg" class="d-flex justify-end">
                   <v-img aspect-ratio="1" :src="getHeroImg(v.hero.ename)"></v-img>
                 </v-avatar>
               </v-row>

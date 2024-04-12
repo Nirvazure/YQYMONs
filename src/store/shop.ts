@@ -27,7 +27,7 @@ export const useShopStore = defineStore('shop', {
             {
                 name: "墨子",
                 img: getImage("../assets/images/ts3.jpg"),
-                color: "#4db76c"
+                color: "green darken-2"
             },
         ],
     })

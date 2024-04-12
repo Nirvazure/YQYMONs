@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="show100">
     <v-row justify="center" no-gutters>
       <v-col v-for="(v, i) in teamStore.team" :key="i" xl="2">
         <v-hover v-slot:default="{ isHovering, props }" open-delay="100">
@@ -38,3 +38,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.show100 {
+  height: 100vh;
+}
+</style>
