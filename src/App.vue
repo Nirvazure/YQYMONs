@@ -85,7 +85,7 @@ export default {
       { text: "SQUAD" },
       { text: "TEAMSHOW" },
       { text: "SHOP" },
-      { text: "ALBUM" },
+      // { text: "ALBUM" },
     ],
     model: null,
   }),
