@@ -30,7 +30,7 @@ export const useShopStore = defineStore('shop', {
                 color: "green darken-2"
             },
         ],
-        signs: [
+        teamCards: [
             {
                 name: "草堂大当家",
                 img: getImage("../assets/images/c1.jpg"),
@@ -50,6 +50,13 @@ export const useShopStore = defineStore('shop', {
                 name: "霸天霸地",
                 img: getImage("../assets/images/c4.jpg"),
                 color: "#59b9e1",
+            },
+        ],
+        signs: [
+            {
+                name: "草堂大当家",
+                img: getImage("../assets/images/signs.jpg"),
+                color: "#b4ffa7",
             },
         ]
     })
