@@ -30,5 +30,27 @@ export const useShopStore = defineStore('shop', {
                 color: "green darken-2"
             },
         ],
+        signs: [
+            {
+                name: "草堂大当家",
+                img: getImage("../assets/images/c1.jpg"),
+                color: "#b4ffa7",
+            },
+            {
+                name: "NIrvazure",
+                img: getImage("../assets/images/c2.jpg"),
+                color: "#cea3f4",
+            },
+            {
+                name: "SVIP",
+                img: getImage("../assets/images/c3.jpg"),
+                color: "#fc7fa5",
+            },
+            {
+                name: "霸天霸地",
+                img: getImage("../assets/images/c4.jpg"),
+                color: "#59b9e1",
+            },
+        ]
     })
 })

@@ -32,7 +32,7 @@
         </v-item-group>
       </div>
       <router-view></router-view>
-      <v-footer class=".d-sm-none .d-md-flex">
+      <v-footer class=".d-sm-none .d-md-flex footer">
         <v-card flat tile width="100%" class="text-center ma-0">
           <v-card-text>
             <v-btn
@@ -131,5 +131,11 @@ export default {
 
 .selectBtn {
   background-color: #46b685;
+}
+.footer {
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  margin-top: 100px;
 }
 </style>
