@@ -41,6 +41,6 @@ export default {
 
 <style>
 .show100 {
-  height: 100vh;
+  height: 70vh;
 }
 </style>
