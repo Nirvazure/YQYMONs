@@ -31,11 +31,6 @@ const routes = [
     name: "Shop",
     component: () => import("@/views/TeamShop.vue"),
   },
-  {
-    path: "/album",
-    name: "Album",
-    component: () => import("@/views/TeamAlbum.vue"),
-  },
 ] as unknown as RouteRecordRaw[]
 
 const router = createRouter({

@@ -80,13 +80,7 @@ export default {
         color: "green",
       },
     ],
-    btns: [
-      // { text: "INDEX", url: "" },
-      { text: "SQUAD" },
-      { text: "TEAMSHOW" },
-      { text: "SHOP" },
-      // { text: "ALBUM" },
-    ],
+    btns: [{ text: "SQUAD" }, { text: "TEAMSHOW" }, { text: "SHOP" }],
     model: null,
   }),
   created() {
