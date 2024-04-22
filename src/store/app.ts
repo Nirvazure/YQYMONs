@@ -1,6 +1,6 @@
 // Utilities
 import { defineStore } from 'pinia'
-import { getRandomInArray, randomArrayUtil, getImage } from '@/utils/Index'
+import { getRandomInArray, randomArrayUtil, getWebImg } from '@/utils/Index'
 import Mock from "mockjs";
 
 //首页状态管理
@@ -17,9 +17,9 @@ export const useTeamStore = defineStore('index', {
     team: [{
       player: {
         name: 'TinyRed',
-        img: getImage('../assets/images/4.jpg'),
-        bgimg: getImage('../assets/images/4.png'),
-        bgbimg: getImage('../assets/images/4b.png'),
+        img: getWebImg('4.jpg'),
+        bgimg: getWebImg('4.png'),
+        bgbimg: getWebImg('4b.png'),
         summary: "YQYMONsAD钙奶",
         heros: ["106", "107", "108", "109"],
         tags: ["颜值担当", "输出稳健"]
@@ -30,9 +30,9 @@ export const useTeamStore = defineStore('index', {
     }, {
       player: {
         name: 'HyBarain',
-        img: getImage('../assets/images/2.jpg'),
-        bgimg: getImage('../assets/images/2.png'),
-        bgbimg: getImage('../assets/images/2b.png'),
+        img: getWebImg('2.jpg'),
+        bgimg: getWebImg('2.png'),
+        bgbimg: getWebImg('2b.png'),
         summary: "YQYMONs打野",
         heros: ["111", "107", "123", "176"],
         tags: ["节奏大师", "野区主宰"]
@@ -43,9 +43,9 @@ export const useTeamStore = defineStore('index', {
     }, {
       player: {
         name: 'Nirvazure',
-        img: getImage('../assets/images/3.jpg'),
-        bgimg: getImage('../assets/images/3.png'),
-        bgbimg: getImage('../assets/images/3b.png'),
+        img: getWebImg('3.jpg'),
+        bgimg: getWebImg('3.png'),
+        bgbimg: getWebImg('3b.png'),
         summary: "YQYMONs中单",
         heros: ["106", "107", "108", "109"],
         tags: ["团队大脑", "AP法王"]
@@ -56,9 +56,9 @@ export const useTeamStore = defineStore('index', {
     }, {
       player: {
         name: 'SandM影',
-        img: getImage('../assets/images/1.jpg'),
-        bgimg: getImage('../assets/images/1.png'),
-        bgbimg: getImage('../assets/images/1b.png'),
+        img: getWebImg('1.jpg'),
+        bgimg: getWebImg('1.png'),
+        bgbimg: getWebImg('1b.png'),
         summary: "YQYMONs上单",
         heros: ["106", "107", "108", "109"],
         tags: ["上单霸主", "单打之王"]
@@ -69,9 +69,9 @@ export const useTeamStore = defineStore('index', {
     }, {
       player: {
         name: 'Uncle',
-        img: getImage('../assets/images/5.jpg'),
-        bgimg: getImage('../assets/images/5.png'),
-        bgbimg: getImage('../assets/images/5b.png'),
+        img: getWebImg('5.jpg'),
+        bgimg: getWebImg('5.png'),
+        bgbimg: getWebImg('5b.png'),
         summary: "YQYMONs辅助",
         heros: ["106", "107", "108", "109"],
         tags: ["开团机器", "团队之盾"]

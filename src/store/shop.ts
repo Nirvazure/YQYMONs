@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getImage } from '@/utils/Index'
+import { getWebImg } from '@/utils/Index'
 
 interface MenuItem {
     text: string,
@@ -16,46 +16,46 @@ export const useShopStore = defineStore('shop', {
         shirts: [
             {
                 name: "干将莫邪",
-                img: getImage("../assets/images/ts1.jpg"),
+                img: getWebImg("ts1.jpg"),
                 color: "pink lighten-3",
             },
             {
                 name: "女娲",
-                img: getImage("../assets/images/ts2.jpg"),
+                img: getWebImg("ts2.jpg"),
                 color: "yellow lighten-3",
             },
             {
                 name: "墨子",
-                img: getImage("../assets/images/ts3.jpg"),
+                img: getWebImg("ts3.jpg"),
                 color: "green darken-2"
             },
         ],
         teamCards: [
             {
                 name: "草堂大当家",
-                img: getImage("../assets/images/c1.jpg"),
+                img: getWebImg("c1.jpg"),
                 color: "#b4ffa7",
             },
             {
                 name: "NIrvazure",
-                img: getImage("../assets/images/c2.jpg"),
+                img: getWebImg("c2.jpg"),
                 color: "#cea3f4",
             },
             {
                 name: "SVIP",
-                img: getImage("../assets/images/c3.jpg"),
+                img: getWebImg("c3.jpg"),
                 color: "#fc7fa5",
             },
             {
                 name: "霸天霸地",
-                img: getImage("../assets/images/c4.jpg"),
+                img: getWebImg("c4.jpg"),
                 color: "#59b9e1",
             },
         ],
         signs: [
             {
                 name: "草堂大当家",
-                img: getImage("../assets/images/signs.jpg"),
+                img: getWebImg("signs.jpg"),
                 color: "#b4ffa7",
             },
         ]

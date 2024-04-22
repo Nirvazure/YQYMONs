@@ -24,3 +24,7 @@ export const randomArrayUtil = (arr: Array<any>, num: number) => {
 export function getImage(url: string | URL) {
     return new URL(url, import.meta.url).href
 }
+
+export function getWebImg(pic: string) {
+    return `http://yqymons-bank.oss-cn-beijing.aliyuncs.com/YQYMONs/images/${pic}`
+}
