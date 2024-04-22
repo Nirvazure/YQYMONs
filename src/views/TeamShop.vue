@@ -132,12 +132,12 @@
 
 <script>
 import { useShopStore } from "@/store/shop";
-import { getImage } from "@/utils/Index";
+import { getWebImg } from "@/utils/Index";
 export default {
   setup() {
     const shopStore = useShopStore();
-    const ppt = getImage("../assets/images/shirts.png");
-    const teamCard = getImage("../assets/images/signs.jpg");
+    const ppt = getWebImg("shirts.png");
+    const teamCard = getWebImg("signs.jpg");
     return { shopStore, ppt, teamCard };
   },
   data: () => {
