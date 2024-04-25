@@ -5,8 +5,9 @@
         <v-hover v-slot:default="{ isHovering, props }" open-delay="100">
           <v-img
             v-bind="props"
-            :class="{ 'animate__animated animate__pulse': isHovering }"
-            :src="isHovering ? v.player.bgimg : v.player.bgbimg"
+            class="op0"
+            :class="{ 'animate__animated animate__pulse op100': isHovering }"
+            :src="v.player.bgimg"
           />
         </v-hover>
       </v-col>
@@ -42,5 +43,11 @@ export default {
 <style>
 .show100 {
   height: 100vh;
+}
+.op0 {
+  opacity: 0.3;
+}
+.op100 {
+  opacity: 1;
 }
 </style>
