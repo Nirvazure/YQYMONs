@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-hover v-for="(v, i) in this.team as Array<any>" :key="i">
+      <v-hover v-for="(v, i) in team" :key="i">
         <template v-slot:default="{ isHovering, props }">
           <v-card
             v-bind="props"
