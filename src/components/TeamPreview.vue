@@ -100,6 +100,7 @@ const heroAvatarSize = computed(() => {
 });
 
 const index = null;
+console.log(index);
 const getHeroImg = (ename) => {
   return (
     "https://game.gtimg.cn/images/yxzj/img201606/heroimg/" +
