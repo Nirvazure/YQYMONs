@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-hover v-for="(v, i) in this.team" :key="i">
+      <v-hover v-for="(v, i) in this.team as Array<any>" :key="i">
         <template v-slot:default="{ isHovering, props }">
           <v-card
             v-bind="props"
@@ -101,7 +101,7 @@ const heroAvatarSize = computed(() => {
 
 const index = null;
 console.log(index);
-const getHeroImg = (ename) => {
+const getHeroImg = (ename: string) => {
   return (
     "https://game.gtimg.cn/images/yxzj/img201606/heroimg/" +
     String(ename) +
