@@ -5,24 +5,28 @@
         <template v-slot:default="{ isHovering, props }">
           <v-card
             v-bind="props"
-            class="d-sm-none d-md-flex ma-2"
+            class="d-md-flex ma-2"
             :elevation="isHovering ? 24 : 6"
             :class="{ 'animate__animated animate__pulse': isHovering }"
-            height="360"
-            width="200"
+            :width="cardWidth"
             @click="$router.push({ name: 'Member', params: { name: v.name } })"
           >
-            <v-img :src="v.player.img" cover>
+            <v-img :src="v.player.img" cover :aspect-ratio="playerRatio">
               <div class="d-felx"></div>
               <v-card-title class="d-flex align-self-start">{{ v.pos }}</v-card-title>
               <v-row class="d-flex align-self-end mb-4 mr-4" justify="end">
-                <v-avatar right size="100" border="warning lg" class="d-flex justify-end">
+                <v-avatar
+                  right
+                  :size="heroAvatarSize"
+                  border="warning lg"
+                  class="d-flex justify-end"
+                >
                   <v-img aspect-ratio="1" :src="getHeroImg(v.hero.ename)"></v-img>
                 </v-avatar>
               </v-row>
               <v-fade-transition>
                 <v-overlay v-if="isHovering">
-                  <template #activator="{ isHovering, props }">
+                  <template #activator="{ props }">
                     <h2 class="text-center text-white" v-bind="props">
                       {{ v.player.name }}
                     </h2>
@@ -36,6 +40,62 @@
     </v-row>
   </v-container>
 </template>
+
+<script setup>
+import { computed } from "vue";
+import { useDisplay } from "vuetify";
+
+// Destructure only the keys you want to use
+const { name } = useDisplay();
+//选手卡片响应式宽度
+const cardWidth = computed(() => {
+  switch (name.value) {
+    case "xs":
+      return 400;
+    case "sm":
+      return 140;
+    case "md":
+      return 160;
+    case "lg":
+      return 200;
+    case "xl":
+      return 300;
+  }
+  return undefined;
+});
+//选手卡片图响应式比率
+const playerRatio = computed(() => {
+  switch (name.value) {
+    case "xs":
+      return "1.8";
+    case "sm":
+      return "1";
+    case "md":
+      return "0.5";
+    case "lg":
+      return "0.6";
+    case "xl":
+      return "0.7";
+  }
+  return undefined;
+});
+//英雄头像响应式尺寸
+const heroAvatarSize = computed(() => {
+  switch (name.value) {
+    case "xs":
+      return 90;
+    case "sm":
+      return 40;
+    case "md":
+      return 60;
+    case "lg":
+      return 80;
+    case "xl":
+      return 90;
+  }
+  return undefined;
+});
+</script>
 
 <script>
 export default {

@@ -8,6 +8,7 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@tsparticles/vue3": "^3.0.1",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "browserify": "^17.0.0",
@@ -15,6 +16,8 @@
     "mockjs": "^1.1.0",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
+    "tsparticles": "^3.3.0",
+    "tsparticles-slim": "^2.12.0",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",

@@ -1,10 +1,86 @@
 <template>
   <v-app>
     <div class="myapp">
+      <vue-particles
+        v-if="route.name === 'Index'"
+        id="tsparticles"
+        @particles-loaded="particlesLoaded"
+        :options="{
+          background: {
+            color: {
+              value: '#fff',
+            },
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: 'push',
+              },
+              onHover: {
+                enable: true,
+                mode: 'repulse',
+              },
+            },
+            modes: {
+              bubble: {
+                distance: 400,
+                duration: 2,
+                opacity: 0.9,
+                size: 40,
+              },
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: '#ccc',
+            },
+            links: {
+              color: '#ccc',
+              distance: 150,
+              enable: true,
+              opacity: 0.8,
+              width: 1,
+            },
+            move: {
+              direction: 'none',
+              enable: true,
+              outModes: 'bounce',
+              random: false,
+              speed: 6,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: 'circle',
+            },
+            size: {
+              value: { min: 1, max: 5 },
+            },
+          },
+          detectRetina: true,
+        }"
+      />
       <div class="text-center my-5">
         <p
           @click="$router.push(`/`)"
-          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2"
+          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2 d-xs-none"
           id="h1"
         >
           <span class="title1 forte">YQY</span><span class="forte">MONs</span>
@@ -32,7 +108,7 @@
         </v-item-group>
       </div>
       <router-view></router-view>
-      <v-footer>
+      <v-footer class="d-none d-lg-flex d-xl-none">
         <v-card flat tile width="100%" class="text-center ma-0">
           <v-card-text>
             <v-btn
@@ -47,9 +123,7 @@
               </v-icon>
             </v-btn>
           </v-card-text>
-
           <v-divider></v-divider>
-
           <v-card-text>
             {{ new Date().getFullYear() }} — <strong>YQYMONs</strong>
           </v-card-text>
@@ -59,53 +133,45 @@
   </v-app>
 </template>
 
-<script lang="ts">
-export default {
-  data: () => ({
-    icons: [
-      {
-        name: "mdi-music",
-        color: "red",
-      },
-      {
-        name: "mdi-video",
-        color: "pink",
-      },
-      {
-        name: "mdi-sina-weibo",
-        color: "red",
-      },
-      {
-        name: "mdi-wechat",
-        color: "green",
-      },
-    ],
-    btns: [{ text: "SQUAD" }, { text: "TEAMSHOW" }, { text: "SHOP" }],
-    model: null,
-  }),
-  created() {
-    console.log("4", this.$route, this.$router);
+<script setup lang="ts">
+import { useRouter, useRoute } from "vue-router";
+
+const particlesLoaded = async (myapp: any) => {
+  console.log("Particles container loaded", myapp);
+};
+
+const icons = [
+  {
+    name: "mdi-music",
+    color: "red",
   },
-  methods: {
-    btnChange(url: string, toggle: any) {
-      console.log("4", this.$route, this.$router);
-      this.$router.push(url);
-      toggle();
-    },
+  {
+    name: "mdi-video",
+    color: "pink",
   },
+  {
+    name: "mdi-sina-weibo",
+    color: "red",
+  },
+  {
+    name: "mdi-wechat",
+    color: "green",
+  },
+];
+
+const btns = [{ text: "SQUAD" }, { text: "TEAMSHOW" }, { text: "SHOP" }];
+const model = null;
+
+const router = useRouter();
+const route = useRoute();
+
+const btnChange = (url: string, toggle: any) => {
+  router.push(url);
+  toggle();
 };
 </script>
 
 <style scoped>
-.tabLink {
-  margin-left: 5;
-  margin-right: 5;
-}
-.tabLink:hover {
-  color: #46b685;
-  margin-left: 5;
-  margin-right: 5;
-}
 .title1 {
   color: #46b685;
   font-family: "Forte";
@@ -116,13 +182,6 @@ export default {
 .myapp {
   background-color: #f6f6f6;
 }
-
-.tab {
-  color: #46b685;
-  margin-left: 5;
-  margin-right: 5;
-}
-
 .selectBtn {
   background-color: #46b685;
 }

@@ -1,11 +1,15 @@
 <template>
   <div>
-    <v-parallax class="mb-10" height="690" :src="ppt"></v-parallax>
-
-    <div class="show mt-10">
-      <v-row justify="center">
-        <v-col cols="2" class=".d-sm-none .d-md-flex">
-          <v-list nav class="rounded-lg" @update:selected="selectItems" color="teal">
+    <v-parallax class="mb-10" :height="bannerHeight" :src="ppt"></v-parallax>
+    <div class="ma-10">
+      <v-row>
+        <v-col cols="3">
+          <v-list
+            nav
+            class="rounded-lg mx-10"
+            @update:selected="selectItems"
+            color="teal"
+          >
             <v-list-item
               v-for="(item, i) in shopStore.menuItems"
               :key="i"
@@ -18,18 +22,18 @@
             </v-list-item>
           </v-list>
         </v-col>
-        <v-col cols="8">
-          <v-row justify="center" v-if="selectedItem === 'T-Shirts'">
-            <v-col md="4" xs="12" v-for="(v, i) in shopStore.shirts" :key="i">
-              <div class="mx-1">
+        <v-col>
+          <div>
+            <p>{{ selectedItem }}</p>
+            <v-row justify="center" v-if="selectedItem === 'T-Shirts'">
+              <v-col md="4" sm="12" xs="12" v-for="(v, i) in shopStore.shirts" :key="i">
                 <v-hover v-slot:default="{ isHovering, props }">
                   <v-card
-                    class="rounded-xl"
                     v-bind="props"
                     :elevation="isHovering ? 12 : 2"
                     :color="isHovering ? v.color : null"
                   >
-                    <v-img cover :src="v.img" aspect-ratio="01"></v-img>
+                    <v-img cover :src="v.img" :aspect-ratio="shirtRatio"></v-img>
                     <v-card-title>YQYMONsT恤-{{ v.name }}</v-card-title>
                     <v-card-text>
                       <v-row align="center" class="mx-0">
@@ -46,8 +50,8 @@
                       </v-row>
                       <div class="my-4 text-subtitle-1">￥ 100.00</div>
                     </v-card-text>
-                    <v-divider class="mx-4"></v-divider>
-                    <v-card-text>
+                    <v-divider class="mx-4 d-none d-lg-flex d-xl-none"></v-divider>
+                    <v-card-text class="d-none d-lg-flex d-xl-none">
                       <v-chip-group
                         v-model="selection"
                         active-class="deep-purple accent-4 white--text"
@@ -61,96 +65,126 @@
                     </v-card-text>
                   </v-card>
                 </v-hover>
-              </div>
-            </v-col>
-          </v-row>
-          <v-row v-if="selectedItem === 'Signs'">
-            <v-col md="4" xs="12" v-for="(v, i) in shopStore.signs" :key="i">
-              <v-hover v-slot:default="{ isHovering, props }">
-                <v-card
-                  v-if="selectedItem === 'Signs'"
-                  class="rounded-xl"
-                  :elevation="isHovering ? 12 : 2"
-                  :color="isHovering ? v.color : null"
-                >
-                  <v-img cover :src="teamCard" aspect-ratio="1.5"></v-img>
-                  <v-card-title>YQYMONsT恤</v-card-title>
-                  <v-card-text>
-                    <v-row align="center" class="mx-0">
-                      <v-rating
-                        :value="4.5"
-                        color="amber"
-                        dense
-                        half-increments
-                        readonly
-                        size="14"
-                      ></v-rating>
+              </v-col>
+            </v-row>
+            <v-row v-if="selectedItem === 'Signs'">
+              <v-col md="4" xs="12" v-for="(v, i) in shopStore.signs" :key="i">
+                <v-hover v-slot:default="{ isHovering }">
+                  <v-card
+                    v-if="selectedItem === 'Signs'"
+                    class="rounded-xl"
+                    :elevation="isHovering ? 12 : 2"
+                    :color="isHovering ? v.color : null"
+                  >
+                    <v-img cover :src="teamCard" :aspect-ratio="shirtRatio"></v-img>
+                    <v-card-title>YQYMONsT恤</v-card-title>
+                    <v-card-text>
+                      <v-row align="center" class="mx-0">
+                        <v-rating
+                          :value="4.5"
+                          color="amber"
+                          dense
+                          half-increments
+                          readonly
+                          size="14"
+                        ></v-rating>
 
-                      <div class="grey--text ms-4">4.5 (413)</div>
-                    </v-row>
-                    <div class="my-4 text-subtitle-1">￥ 100.00</div>
-                  </v-card-text>
-                </v-card>
-              </v-hover>
-            </v-col>
-          </v-row>
-          <v-row v-if="selectedItem === 'TeamCard'">
-            <v-col md="4" xs="12" v-for="(v, i) in shopStore.teamCards" :key="i">
-              <v-hover v-slot:default="{ isHovering, props }">
-                <v-card
-                  class="rounded-xl"
-                  v-bind="props"
-                  :elevation="isHovering ? 12 : 2"
-                  :color="isHovering ? v.color : null"
-                  :class="{ 'text-white': isHovering }"
-                >
-                  <v-img cover :src="v.img" aspect-ratio="1.5"></v-img>
-                  <v-card-title>签名卡-{{ v.name }}</v-card-title>
-                  <v-card-text>
-                    <v-row align="center" class="mx-0">
-                      <v-rating
-                        :value="4.5"
-                        color="amber"
-                        dense
-                        half-increments
-                        readonly
-                        size="14"
-                      />
-                      <div class="grey--text ms-4">4.5 (413)</div>
-                    </v-row>
-                    <div class="my-4 text-subtitle-1">￥ 100.00</div>
-                  </v-card-text>
-                </v-card>
-              </v-hover>
-            </v-col>
-          </v-row>
+                        <div class="grey--text ms-4">4.5 (413)</div>
+                      </v-row>
+                      <div class="my-4 text-subtitle-1">￥ 100.00</div>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </v-row>
+            <v-row v-if="selectedItem === 'TeamCard'">
+              <v-col md="4" xs="12" v-for="(v, i) in shopStore.teamCards" :key="i">
+                <v-hover v-slot:default="{ isHovering, props }">
+                  <v-card
+                    class="rounded-xl"
+                    v-bind="props"
+                    :elevation="isHovering ? 12 : 2"
+                    :color="isHovering ? v.color : null"
+                    :class="{ 'text-white': isHovering }"
+                  >
+                    <v-img cover :src="v.img" aspect-ratio="1.5"></v-img>
+                    <v-card-title>签名卡-{{ v.name }}</v-card-title>
+                    <v-card-text>
+                      <v-row align="center" class="mx-0">
+                        <v-rating
+                          :value="4.5"
+                          color="amber"
+                          dense
+                          half-increments
+                          readonly
+                          size="14"
+                        />
+                        <div class="grey--text ms-4">4.5 (413)</div>
+                      </v-row>
+                      <div class="my-4 text-subtitle-1">￥ 100.00</div>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </v-row>
+          </div>
         </v-col>
       </v-row>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from "vue";
+import { useDisplay } from "vuetify";
 import { useShopStore } from "@/store/shop";
 import { getWebImg } from "@/utils/Index";
-export default {
-  setup() {
-    const shopStore = useShopStore();
-    const ppt = getWebImg("shirts.png");
-    const teamCard = getWebImg("signs.jpg");
-    return { shopStore, ppt, teamCard };
-  },
-  data: () => {
-    return {
-      selectedItem: "T-Shirts",
-    };
-  },
-  methods: {
-    selectItems(items) {
-      this.selectedItem = items[0];
-    },
-  },
+
+const shopStore = useShopStore();
+const ppt = getWebImg("shirts.png");
+const teamCard = getWebImg("signs.jpg");
+
+// let selectedItem = "T-Shirts";
+let selectedItem = ref("T-Shirts");
+
+const selectItems = (items) => {
+  selectedItem.value = items[0];
 };
+
+// Destructure only the keys you want to use
+const { name } = useDisplay();
+//选手卡片图响应式比率
+const bannerHeight = computed(() => {
+  switch (name.value) {
+    case "xs":
+      return 300;
+    case "sm":
+      return 400;
+    case "md":
+      return 500;
+    case "lg":
+      return 600;
+    case "xl":
+      return 700;
+  }
+  return undefined;
+});
+//选手卡片图响应式比率
+const shirtRatio = computed(() => {
+  switch (name.value) {
+    case "xs":
+      return "2";
+    case "sm":
+      return "2";
+    case "md":
+      return "1";
+    case "lg":
+      return "0.9";
+    case "xl":
+      return "1";
+  }
+  return undefined;
+});
 </script>
 
 <style scoped>
