@@ -28,7 +28,6 @@
       </div>
     </v-row>
     <RelateChart class="my-6" />
-    <!-- <TeamTable :team="teamStore.team" /> -->
   </div>
 </template>
 
@@ -37,7 +36,6 @@ import { useTeamStore } from "@/store/app.ts";
 import RaddarChart from "@/components/RaddarChart.vue";
 import RelateChart from "@/components/RelateChart.vue";
 import TeamPreview from "@/components/TeamPreview.vue";
-// import TeamTable from "@/components/TeamTable.vue";
 export default {
   setup() {
     const teamStore = useTeamStore();
@@ -52,7 +50,6 @@ export default {
     RaddarChart,
     TeamPreview,
     RelateChart,
-    // TeamTable,
   },
 };
 </script>

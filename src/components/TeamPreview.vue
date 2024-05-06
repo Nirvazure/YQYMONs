@@ -41,9 +41,12 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 import { useDisplay } from "vuetify";
+const props = defineProps(["team"]);
+
+console.log(props);
 
 // Destructure only the keys you want to use
 const { name } = useDisplay();
@@ -95,26 +98,15 @@ const heroAvatarSize = computed(() => {
   }
   return undefined;
 });
-</script>
 
-<script>
-export default {
-  props: {
-    team: Array,
-  },
-  data: () => ({
-    index: null,
-  }),
-  methods: {
-    getHeroImg(ename) {
-      return (
-        "https://game.gtimg.cn/images/yxzj/img201606/heroimg/" +
-        String(ename) +
-        "/" +
-        String(ename) +
-        ".jpg"
-      );
-    },
-  },
+const index = null;
+const getHeroImg = (ename) => {
+  return (
+    "https://game.gtimg.cn/images/yxzj/img201606/heroimg/" +
+    String(ename) +
+    "/" +
+    String(ename) +
+    ".jpg"
+  );
 };
 </script>
