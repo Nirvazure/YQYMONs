@@ -1,140 +1,155 @@
 <template>
-  <v-app>
-    <div class="myapp">
-      <vue-particles
-        v-if="route.name === 'Index'"
-        id="tsparticles"
-        @particles-loaded="particlesLoaded"
-        :options="{
-          background: {
-            color: {
-              value: '#fff',
+  <v-theme-provider class="pa-10" :theme="darkTheme ? 'dark' : 'light'" with-background>
+    <v-app>
+      <v-app-bar v-if="route.name !== 'Index'" rounded class="mb-10">
+        <template v-slot:append>
+          <v-switch
+            v-model="darkTheme"
+            true-icon="mdi-weather-night"
+            false-icon="mdi-weather-sunny"
+            hide-details
+            inset
+          ></v-switch>
+        </template>
+      </v-app-bar>
+      <div class="mt-10">
+        <vue-particles
+          v-if="route.name === 'Index'"
+          id="tsparticles"
+          @particles-loaded="particlesLoaded"
+          :options="{
+            background: {
+              color: {
+                value: '#fff',
+              },
             },
-          },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onClick: {
+            fpsLimit: 120,
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: 'push',
+                },
+                onHover: {
+                  enable: true,
+                  mode: 'repulse',
+                },
+              },
+              modes: {
+                bubble: {
+                  distance: 400,
+                  duration: 2,
+                  opacity: 0.9,
+                  size: 40,
+                },
+                push: {
+                  quantity: 4,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+              },
+            },
+            particles: {
+              color: {
+                value: '#ccc',
+              },
+              links: {
+                color: '#ccc',
+                distance: 150,
                 enable: true,
-                mode: 'push',
+                opacity: 0.8,
+                width: 1,
               },
-              onHover: {
+              move: {
+                direction: 'none',
                 enable: true,
-                mode: 'repulse',
+                outModes: 'bounce',
+                random: false,
+                speed: 6,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                },
+                value: 80,
+              },
+              opacity: {
+                value: 0.5,
+              },
+              shape: {
+                type: 'circle',
+              },
+              size: {
+                value: { min: 1, max: 5 },
               },
             },
-            modes: {
-              bubble: {
-                distance: 400,
-                duration: 2,
-                opacity: 0.9,
-                size: 40,
-              },
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: '#ccc',
-            },
-            links: {
-              color: '#ccc',
-              distance: 150,
-              enable: true,
-              opacity: 0.8,
-              width: 1,
-            },
-            move: {
-              direction: 'none',
-              enable: true,
-              outModes: 'bounce',
-              random: false,
-              speed: 6,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.5,
-            },
-            shape: {
-              type: 'circle',
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-          },
-          detectRetina: true,
-        }"
-      />
-      <div class="text-center my-5">
-        <p
-          @click="$router.push(`/`)"
-          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2 d-xs-none"
-          id="h1"
-        >
-          <span class="title1 forte">YQY</span><span class="forte">MONs</span>
-        </p>
-        <p class="text-h5 font-weight-thin mb-5">KPL Legend Team</p>
+            detectRetina: true,
+          }"
+        />
 
-        <v-item-group v-model="model" class="mb-8">
-          <v-item v-for="(v, i) in btns" :key="i">
-            <template v-slot:default="{ toggle }">
+        <div class="text-center mt-10">
+          <p
+            @click="$router.push(`/`)"
+            class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2 mt-10 d-xs-none"
+            id="h1"
+          >
+            <span class="title1 forte">YQY</span><span class="forte">MONs</span>
+          </p>
+          <p class="text-h5 font-weight-thin mb-5">KPL Legend Team</p>
+
+          <v-item-group v-model="model" class="mb-8">
+            <v-item v-for="(v, i) in btns" :key="i">
+              <template v-slot:default="{ toggle }">
+                <v-btn
+                  class="mx-3"
+                  :active="model == i"
+                  color="#46b685"
+                  :class="{
+                    selectBtn: model == i,
+                    'text-white': model == i,
+                  }"
+                  variant="text"
+                  @click="btnChange(v.text, toggle)"
+                  >{{ v.text }}</v-btn
+                >
+                <span v-if="i < btns.length - 1"> |</span>
+              </template>
+            </v-item>
+          </v-item-group>
+        </div>
+        <router-view></router-view>
+        <v-footer class="d-none d-lg-flex d-xl-none">
+          <v-card flat tile width="100%" class="text-center ma-0">
+            <v-card-text>
               <v-btn
-                class="mx-3"
-                :active="model == i"
-                color="#46b685"
-                :class="{
-                  selectBtn: model == i,
-                  'text-white': model == i,
-                }"
-                variant="text"
-                @click="btnChange(v.text, toggle)"
-                >{{ v.text }}</v-btn
+                v-for="icon in icons"
+                :key="icon.name"
+                class="mx-4"
+                icon
+                :color="icon.color"
               >
-              <span v-if="i < btns.length - 1"> |</span>
-            </template>
-          </v-item>
-        </v-item-group>
+                <v-icon size="24px">
+                  {{ icon.name }}
+                </v-icon>
+              </v-btn>
+            </v-card-text>
+            <v-divider></v-divider>
+            <v-card-text>
+              {{ new Date().getFullYear() }} — <strong>YQYMONs</strong>
+            </v-card-text>
+          </v-card>
+        </v-footer>
       </div>
-      <router-view></router-view>
-      <v-footer class="d-none d-lg-flex d-xl-none">
-        <v-card flat tile width="100%" class="text-center ma-0">
-          <v-card-text>
-            <v-btn
-              v-for="icon in icons"
-              :key="icon.name"
-              class="mx-4"
-              icon
-              :color="icon.color"
-            >
-              <v-icon size="24px">
-                {{ icon.name }}
-              </v-icon>
-            </v-btn>
-          </v-card-text>
-          <v-divider></v-divider>
-          <v-card-text>
-            {{ new Date().getFullYear() }} — <strong>YQYMONs</strong>
-          </v-card-text>
-        </v-card>
-      </v-footer>
-    </div>
-  </v-app>
+    </v-app>
+  </v-theme-provider>
 </template>
 
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
+import { ref } from "vue";
 
 const particlesLoaded = async (myapp: any) => {
   console.log("Particles container loaded", myapp);
@@ -161,6 +176,7 @@ const icons = [
 
 const btns = [{ text: "SQUAD" }, { text: "TEAMSHOW" }, { text: "SHOP" }];
 const model = null;
+const darkTheme = ref(false);
 
 const router = useRouter();
 const route = useRoute();
@@ -179,7 +195,7 @@ const btnChange = (url: string, toggle: any) => {
 .forte {
   font-family: "Forte";
 }
-.myapp {
+.bgCeramic {
   background-color: #f6f6f6;
 }
 .selectBtn {

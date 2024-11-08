@@ -33,8 +33,26 @@
                     :elevation="isHovering ? 12 : 2"
                     :color="isHovering ? v.color : null"
                   >
-                    <v-img cover :src="v.img" :aspect-ratio="shirtRatio"></v-img>
-                    <v-card-title>YQYMONsT恤-{{ v.name }}</v-card-title>
+                    <!-- <v-img cover :src="v.img" :aspect-ratio="shirtRatio"></v-img> -->
+                    <v-carousel
+                      :continuous="false"
+                      :show-arrows="false"
+                      delimiter-icon="mdi-square"
+                      height="300"
+                      hide-delimiter-background
+                      class="text-black"
+                    >
+                      <v-carousel-item v-for="(slide, i) in shopStore.shirts" :key="i">
+                        <v-sheet height="100%" tile>
+                          <v-img
+                            cover
+                            :src="slide.img"
+                            :aspect-ratio="shirtRatio"
+                          ></v-img>
+                        </v-sheet>
+                      </v-carousel-item>
+                    </v-carousel>
+                    <v-card-title>YQYMONsT恤</v-card-title>
                     <v-card-text>
                       <v-row align="center" class="mx-0">
                         <v-rating
@@ -144,14 +162,12 @@ const shopStore = useShopStore();
 const ppt = getWebImg("shirts.png");
 const teamCard = getWebImg("signs.jpg");
 
-// let selectedItem = "T-Shirts";
 let selectedItem = ref("T-Shirts");
 
 const selectItems = (items) => {
   selectedItem.value = items[0];
 };
 
-// Destructure only the keys you want to use
 const { name } = useDisplay();
 //选手卡片图响应式比率
 const bannerHeight = computed(() => {
@@ -193,5 +209,8 @@ const shirtRatio = computed(() => {
 }
 .show {
   height: 700px;
+}
+ul {
+  margin: 30px;
 }
 </style>
