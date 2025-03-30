@@ -31,25 +31,15 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useTeamStore } from "@/store/app.ts";
 import RaddarChart from "@/components/RaddarChart.vue";
-import RelateChart from "@/components/RelateChart.vue";
 import TeamPreview from "@/components/TeamPreview.vue";
-export default {
-  setup() {
-    const teamStore = useTeamStore();
-    return { teamStore };
-  },
-  computed: {
-    metrics() {
-      return this.teamStore.metrics;
-    },
-  },
-  components: {
-    RaddarChart,
-    TeamPreview,
-    RelateChart,
-  },
-};
+import { computed } from "vue";
+
+const teamStore = useTeamStore();
+
+const metrics = computed(() => {
+  return teamStore.metrics;
+});
 </script>

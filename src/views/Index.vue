@@ -15,28 +15,23 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
 import { useTeamStore } from "@/store/app";
+import { onMounted } from "vue";
 import { gatewayAPI } from "@/api";
-export default {
-  setup() {
-    const teamStore = useTeamStore();
-    return { teamStore };
-  },
-  name: "Index",
-  data: () => ({
-    memberList: [],
-  }),
-  mounted() {
-    this.getMemberList();
-  },
-  methods: {
-    getMemberList() {
-      gatewayAPI("member.list", { level: 0 }).then((res) => {
-        this.memberList = res.data.result.data;
-      });
-    },
-  },
+import { ref } from "vue";
+
+const teamStore = useTeamStore();
+const memberList = ref([]);
+
+onMounted(() => {
+  getMemberList();
+});
+
+const getMemberList = () => {
+  gatewayAPI("member.list", { level: 0 }).then((res) => {
+    memberList.value = res.data.result.data;
+  });
 };
 </script>
 

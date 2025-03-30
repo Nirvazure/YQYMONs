@@ -1,12 +1,5 @@
 import axios from "axios";
-//随机ID：时间戳+4位随机数
-function getRandomId() {
-    return 't-' + new Date().getTime() + '-n-' + getRandomNum(1000, 9999)
-}
-//随机数生产器
-function getRandomNum(min, max) {
-    return Math.floor(Math.random() * (max - min) + min)
-}
+import { getRandomId } from '@/utils/Index'
 //API地址
 const api = 'api/gateway'
 //请求封装

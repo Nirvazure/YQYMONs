@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="myapp">
+    <div class="mt-10">
       <vue-particles
         v-if="route.name === 'Index'"
         id="tsparticles"
@@ -77,10 +77,11 @@
           detectRetina: true,
         }"
       />
-      <div class="text-center my-5">
+
+      <div class="text-center mt-10">
         <p
           @click="$router.push(`/`)"
-          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2 d-xs-none"
+          class="text-h1 font-weight-bold animate__animated animate__zoomIn forte mb-2 mt-10 d-xs-none"
           id="h1"
         >
           <span class="title1 forte">YQY</span><span class="forte">MONs</span>
@@ -179,7 +180,7 @@ const btnChange = (url: string, toggle: any) => {
 .forte {
   font-family: "Forte";
 }
-.myapp {
+.bgCeramic {
   background-color: #f6f6f6;
 }
 .selectBtn {
