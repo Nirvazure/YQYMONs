@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <v-parallax class="mb-10" :height="bannerHeight" :src="ppt"></v-parallax>
     <div class="ma-10">
       <v-row>
@@ -28,6 +28,7 @@
               <v-col md="4" sm="12" xs="12" v-for="(v, i) in shopStore.shirts" :key="i">
                 <v-hover v-slot:default="{ isHovering, props }">
                   <v-card
+                    class="card"
                     v-bind="props"
                     :elevation="isHovering ? 12 : 2"
                     :color="isHovering ? v.color : null"
@@ -211,5 +212,9 @@ const shirtRatio = computed(() => {
 }
 ul {
   margin: 30px;
+}
+
+.card {
+  border: 10px solid hsla(0, 0%, 100%, 0.5);
 }
 </style>

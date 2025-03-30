@@ -23,7 +23,7 @@ registerPlugins(app);
 
 app.use(Particles as any, {
   init: async (engine: Engine) => {
-    await loadFull(engine); // you can load the full tsParticles library from "tsparticles" if you need it
+    await loadFull(engine);
   },
 });
 app.use(router);

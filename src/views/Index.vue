@@ -5,7 +5,7 @@
         <v-hover v-slot:default="{ isHovering, props }" open-delay="100">
           <v-img
             v-bind="props"
-            class="op0"
+            class="demo"
             :class="{ 'animate__animated animate__pulse op100': isHovering }"
             :src="v.player.bgimg"
           />
@@ -39,10 +39,11 @@ const getMemberList = () => {
 .show100 {
   height: 100vh;
 }
-.op0 {
+.demo {
   opacity: 0.3;
 }
-.op100 {
+.demo:hover {
   opacity: 1;
+  transition: 2s;
 }
 </style>

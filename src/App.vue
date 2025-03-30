@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div class="mt-10">
+    <div class="bg">
       <vue-particles
         v-if="route.name === 'Index'"
         id="tsparticles"
